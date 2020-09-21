@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
         const releaseButton = ce('button')
         releaseButton.className = 'release'
-        releaseButton.dataset.dataPokemonId = pokemon.id
+        releaseButton.dataset.pokemonId = pokemon.id
         releaseButton.textContent = 'release'   
         newLi.append(releaseButton)
       }
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
     const releaseButton = ce('button')
     releaseButton.className = 'release'
-    releaseButton.dataset.dataPokemonId = pokemon.id
+    releaseButton.dataset.pokemonId = pokemon.id
     releaseButton.textContent = 'release'   
     newLi.append(releaseButton)
   }
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', e => {
           .then(json => addPokemon(currentUl, json))
         }
       } else if (e.target.textContent == 'release') {
-          fetch(`${POKEMONS_URL}/${e.target.dataset.dataPokemonId}`, {
+          fetch(`${POKEMONS_URL}/${e.target.dataset.pokemonId}`, {
             method: "DELETE"
             
           }).then(resp=>resp.json())
